@@ -1,0 +1,9 @@
+from ldap3 import Server, Connection, ALL
+s = Server(host='ldaptestserver.westus.cloudapp.azure.com',port=389,use_ssl=False,get_info='ALL')
+
+c = Connection(s,user='cn=admin,dc=ldaptestserver,dc=westus,dc=cloudapp,dc=azure,dc=com',password='NvBUsxreRLyt1VX8oOUR',version=3,authentication='SIMPLE',client_strategy='SYNC',read_only=False,raise_exceptions=False)
+
+if not c.bind():
+   print('error in binding',c.result)
+else:
+   print('Bind is successful!!')
