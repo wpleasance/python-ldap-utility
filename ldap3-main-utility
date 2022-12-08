@@ -7,3 +7,18 @@ if not c.bind():
    print('error in binding',c.result)
 else:
    print('Bind is successful!!')
+
+result = c.delete('c=au,dc=ldaptestserver,dc=westus,dc=cloudapp,dc=azure,dc=com')
+
+if not result:
+   print("Failed to delete")
+else:
+   print("Successfully deleted")
+
+# c.add('c=au,dc=ldaptestserver,dc=westus,dc=cloudapp,dc=azure,dc=com',['country','top'],{'c':'au'})
+
+# print("Result of ADD: ",c.result)
+
+c.unbind()
+
+print('Unbind is successful!!')
